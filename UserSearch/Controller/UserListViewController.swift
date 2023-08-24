@@ -8,10 +8,12 @@
 import UIKit
 
 class UserListViewController: UIViewController {
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var users = [User]()
+    var usersToFilter = [User]()
     var currentPage = 1
     
     let refreshControl = UIRefreshControl()
@@ -48,6 +50,7 @@ class UserListViewController: UIViewController {
         API.shared.getUsers(page: currentPage) { [self] data, error in
             guard let data = data else { return }
             self.users.append(contentsOf: data.results)
+            self.usersToFilter.append(contentsOf: data.results)
             self.tableView.reloadData()
             
             self.activityIndicator.isHidden = true
@@ -83,5 +86,27 @@ extension UserListViewController: UITableViewDelegate, UITableViewDataSource {
             currentPage += 1
             loadUsers()
         }
+    }
+}
+
+extension UserListViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard !searchText.isEmpty else {
+            users = usersToFilter
+            tableView.reloadData()
+            return
+        }
+        
+        users = usersToFilter.filter { user in
+            for textToSearchInto in [user.name?.first, user.name?.last, user.email, user.location?.city, user.location?.state, user.location?.street] {
+                if textToSearchInto?.contains(find: searchText) ?? false {
+                    return true
+                } else {
+                    return false
+                }
+            }
+            return false
+        }
+        tableView.reloadData()
     }
 }

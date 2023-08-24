@@ -59,12 +59,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="1A2-md-FEI">
+                                <rect key="frame" x="0.0" y="103" width="393" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="TYT-DW-0MD" id="OQ0-5G-eWw"/>
+                                </connections>
+                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="TaP-Bu-Te9">
-                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
+                                <rect key="frame" x="0.0" y="159" width="393" height="610"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="ZWm-NY-onz">
-                                <rect key="frame" x="186" y="416" width="20" height="20"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="ZWm-NY-onz">
+                                <rect key="frame" x="186.66666666666666" y="426" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="wcS-eI-fkp"/>
@@ -72,10 +79,13 @@
                         <constraints>
                             <constraint firstItem="TaP-Bu-Te9" firstAttribute="leading" secondItem="wcS-eI-fkp" secondAttribute="leading" id="FSc-ik-P70"/>
                             <constraint firstItem="wcS-eI-fkp" firstAttribute="trailing" secondItem="TaP-Bu-Te9" secondAttribute="trailing" id="Kc4-iF-UeQ"/>
+                            <constraint firstItem="wcS-eI-fkp" firstAttribute="trailing" secondItem="1A2-md-FEI" secondAttribute="trailing" id="QOQ-Cz-nQo"/>
                             <constraint firstItem="wcS-eI-fkp" firstAttribute="bottom" secondItem="TaP-Bu-Te9" secondAttribute="bottom" id="Rdc-Ih-tBt"/>
-                            <constraint firstItem="TaP-Bu-Te9" firstAttribute="top" secondItem="wcS-eI-fkp" secondAttribute="top" id="Sq8-nn-RhL"/>
                             <constraint firstItem="ZWm-NY-onz" firstAttribute="centerX" secondItem="wcS-eI-fkp" secondAttribute="centerX" id="ZS8-S7-nb3"/>
+                            <constraint firstItem="1A2-md-FEI" firstAttribute="leading" secondItem="wcS-eI-fkp" secondAttribute="leading" id="dql-av-voe"/>
+                            <constraint firstItem="1A2-md-FEI" firstAttribute="top" secondItem="wcS-eI-fkp" secondAttribute="top" id="ecX-YL-p0T"/>
                             <constraint firstItem="ZWm-NY-onz" firstAttribute="centerY" secondItem="wcS-eI-fkp" secondAttribute="centerY" id="x0q-Ry-bjw"/>
+                            <constraint firstItem="TaP-Bu-Te9" firstAttribute="top" secondItem="1A2-md-FEI" secondAttribute="bottom" id="yE7-2u-pMG"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Users" image="list.bullet.clipboard" catalog="system" id="Cya-rg-DRn" userLabel="UserList"/>

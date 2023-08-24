@@ -13,6 +13,7 @@ class UserTableViewCell: UITableViewCell {
     @IBOutlet weak var firstNameLabel: UILabel!
     @IBOutlet weak var lastNameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var bookMarkButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,5 +35,9 @@ class UserTableViewCell: UITableViewCell {
         firstNameLabel.text = user.name?.first?.capitalized
         lastNameLabel.text = user.name?.last?.capitalized
         emailLabel.text = user.email
+    }
+    
+    @IBAction func bookMarkButtonTapped() {
+        
     }
 }
