@@ -7,13 +7,22 @@
 
 import UIKit
 
+protocol BookmarkButtonDelegate: AnyObject {
+    func didTappedBookmarkButton(_ indexPath: IndexPath?)
+}
+
 class UserTableViewCell: UITableViewCell {
     @IBOutlet weak var wrappView: UIView!
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var firstNameLabel: UILabel!
     @IBOutlet weak var lastNameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
-    @IBOutlet weak var bookMarkButton: UIButton!
+    @IBOutlet weak var bookmarkButton: UIButton!
+    
+    var user: User?
+    var indexPath: IndexPath?
+    
+    weak var delegate: BookmarkButtonDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,14 +39,21 @@ class UserTableViewCell: UITableViewCell {
 
     }
     
-    func configure(with user: User) {
+    func configure(with user: User, _ indexPath: IndexPath) {
+        self.user = user
+        self.indexPath = indexPath
         avatarImageView.loadImageFromUrl(user.picture?.large ?? "")
-        firstNameLabel.text = user.name?.first?.capitalized
-        lastNameLabel.text = user.name?.last?.capitalized
+        firstNameLabel.text = user.name.first.capitalized
+        lastNameLabel.text = user.name.last.capitalized
         emailLabel.text = user.email
+        
+        let bookmarkImage = Persistance.shared.isUserBookmarked(user) ? UIImage(systemName: "bookmark.fill") : UIImage(systemName: "bookmark")
+        bookmarkButton.setImage(bookmarkImage, for: .normal)
     }
     
-    @IBAction func bookMarkButtonTapped() {
-        
+    @IBAction func bookmarkButtonTapped() {
+        guard let user = user else { return }
+        Persistance.shared.addOrRemoveUser(user)
+        delegate?.didTappedBookmarkButton(indexPath)
     }
 }

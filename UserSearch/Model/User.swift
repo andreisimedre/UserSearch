@@ -7,20 +7,20 @@
 
 import Foundation
 
-public struct Users: Codable {
+public struct Users: Decodable {
     let results: [User]
     let info: Info?
 }
 
-struct Info: Codable {
+struct Info: Decodable {
     let seed: String?
     let results, page: Int?
     let version: String?
 }
 
-struct User: Codable {
+struct User: Decodable {
     let gender: Gender?
-    let name: NameClass?
+    let name: NameClass
     let location: Location?
     let email: String?
     let dob: Dob?
@@ -30,24 +30,37 @@ struct User: Codable {
     let id: ID?
     let picture: Picture?
     let nat: String?
+    let login: Login
+    
+    var fullName: String {
+        return "\(name.title.rawValue.capitalized) \(name.first.capitalized) \(name.last.capitalized)"
+    }
+    
+    static func == (lhs: User, rhs: User) -> Bool {
+        return lhs.login.uuid == rhs.login.uuid
+    }
 }
 
-struct Dob: Codable {
+struct Login: Decodable {
+    let uuid: String
+}
+
+struct Dob: Decodable {
     let date: String?
     let age: Int?
 }
 
-enum Gender: String, Codable {
+enum Gender: String, Decodable {
     case female
     case male
 }
 
-struct ID: Codable {
+struct ID: Decodable {
     let name: NameEnum?
     let value: String?
 }
 
-enum NameEnum: String, Codable {
+enum NameEnum: String, Decodable {
     case avs = "AVS"
     case bsn = "BSN"
     case cpr = "CPR"
@@ -62,19 +75,20 @@ enum NameEnum: String, Codable {
     case tfn = "TFN"
 }
 
-struct Location: Codable {
+struct Location: Decodable {
     let street: String?
     let city: String?
     let state: String?
+    let country: String?
 }
 
-struct NameClass: Codable {
-    let title: Title?
-    let first: String?
-    let last: String?
+struct NameClass: Decodable {
+    let title: Title
+    let first: String
+    let last: String
 }
 
-enum Title: String, Codable {
+enum Title: String, Decodable {
     case madame
     case mademoiselle
     case miss
@@ -84,7 +98,7 @@ enum Title: String, Codable {
     case ms
 }
 
-struct Picture: Codable {
+struct Picture: Decodable {
     let large: String?
     let medium: String?
     let thumbnail: String?

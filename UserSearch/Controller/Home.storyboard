@@ -8,11 +8,12 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Bookmarks-->
         <scene sceneID="XA2-jb-AdY">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gNE-u5-na2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController id="tff-wB-csJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="F8w-Gj-YS9"/>
+                    <tabBarItem key="tabBarItem" title="Bookmarks" image="bookmark.fill" catalog="system" id="F8w-Gj-YS9"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="4sp-3s-YJ1">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -21,11 +22,10 @@
                         <segue destination="Y4Z-z4-oq2" kind="relationship" relationship="rootViewController" id="TaA-BV-fxN"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gNE-u5-na2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-45" y="571"/>
         </scene>
-        <!--Bookmarks-->
+        <!--Bookmarks View Controller-->
         <scene sceneID="UmU-Sc-COg">
             <objects>
                 <viewController storyboardIdentifier="BookmarksViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y4Z-z4-oq2" customClass="BookmarksViewController" customModule="UserSearch" customModuleProvider="target" sceneMemberID="viewController">
@@ -33,25 +33,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bookmarks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E3v-rh-y1Q">
-                                <rect key="frame" x="175" y="416" width="86" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="nhx-YM-br3">
+                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="GdB-Sf-ANP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="GdB-Sf-ANP" firstAttribute="bottom" secondItem="nhx-YM-br3" secondAttribute="bottom" id="EAb-8k-qOI"/>
+                            <constraint firstItem="GdB-Sf-ANP" firstAttribute="trailing" secondItem="nhx-YM-br3" secondAttribute="trailing" id="UTl-bH-XaO"/>
+                            <constraint firstItem="nhx-YM-br3" firstAttribute="top" secondItem="GdB-Sf-ANP" secondAttribute="top" id="gUk-Cr-1fe"/>
+                            <constraint firstItem="nhx-YM-br3" firstAttribute="leading" secondItem="GdB-Sf-ANP" secondAttribute="leading" id="nHP-Kc-PWx"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Bookmarks" image="bookmark.fill" catalog="system" id="z2Q-UD-exl"/>
                     <navigationItem key="navigationItem" id="HbV-dI-VkY"/>
+                    <connections>
+                        <outlet property="tableView" destination="nhx-YM-br3" id="dyu-Np-OAx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GgH-Dt-sX4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="810" y="570"/>
         </scene>
-        <!--Users-->
+        <!--User List View Controller-->
         <scene sceneID="ESd-Gh-2Gq">
             <objects>
                 <viewController storyboardIdentifier="UserListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="TYT-DW-0MD" customClass="UserListViewController" customModule="UserSearch" customModuleProvider="target" sceneMemberID="viewController">
@@ -88,10 +93,10 @@
                             <constraint firstItem="TaP-Bu-Te9" firstAttribute="top" secondItem="1A2-md-FEI" secondAttribute="bottom" id="yE7-2u-pMG"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Users" image="list.bullet.clipboard" catalog="system" id="Cya-rg-DRn" userLabel="UserList"/>
                     <navigationItem key="navigationItem" id="KNH-RQ-bmP"/>
                     <connections>
                         <outlet property="activityIndicator" destination="ZWm-NY-onz" id="Bgu-Xn-Qx8"/>
+                        <outlet property="searchBar" destination="1A2-md-FEI" id="bl9-m1-ccw"/>
                         <outlet property="tableView" destination="TaP-Bu-Te9" id="bsW-EM-Vl7"/>
                     </connections>
                 </viewController>
@@ -117,11 +122,11 @@
             </objects>
             <point key="canvasLocation" x="-1356" y="94"/>
         </scene>
-        <!--Item-->
+        <!--Users-->
         <scene sceneID="Q6U-xX-els">
             <objects>
                 <navigationController id="xVs-Io-88T" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="cCP-ez-TFQ"/>
+                    <tabBarItem key="tabBarItem" title="Users" image="list.bullet.clipboard" catalog="system" id="cCP-ez-TFQ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8iH-tr-MjF">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

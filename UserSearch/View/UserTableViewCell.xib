@@ -53,7 +53,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="bookmark" catalog="system"/>
                                 <connections>
-                                    <action selector="bookMarkButtonTapped" destination="7RS-IP-VIH" eventType="touchUpInside" id="KRa-CA-b3L"/>
+                                    <action selector="bookmarkButtonTapped" destination="7RS-IP-VIH" eventType="touchUpInside" id="KRa-CA-b3L"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -78,7 +78,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="avatarImageView" destination="ViB-wr-P3l" id="aD5-bw-5xW"/>
-                <outlet property="bookMarkButton" destination="QTQ-Vl-GXA" id="WJN-vh-AUm"/>
+                <outlet property="bookmarkButton" destination="QTQ-Vl-GXA" id="WJN-vh-AUm"/>
                 <outlet property="emailLabel" destination="a8m-u0-69I" id="IkO-iX-vVi"/>
                 <outlet property="firstNameLabel" destination="7sN-zf-A2K" id="F35-kP-mJJ"/>
                 <outlet property="lastNameLabel" destination="NJN-Qr-pDG" id="4ho-aQ-0Pk"/>

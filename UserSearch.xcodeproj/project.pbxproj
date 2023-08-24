@@ -28,6 +28,9 @@
 		F93CF9142A97815E00086004 /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F93CF9132A97815E00086004 /* UserTableViewCell.xib */; };
 		F93CF91A2A9785BF00086004 /* UIImageView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93CF9192A9785BF00086004 /* UIImageView + Extension.swift */; };
 		F93CF91C2A97BF8B00086004 /* String + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93CF91B2A97BF8B00086004 /* String + Extension.swift */; };
+		F93CF91E2A97C6B500086004 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93CF91D2A97C6B500086004 /* UserViewController.swift */; };
+		F93CF9262A97FB8800086004 /* UserViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F93CF9252A97FB8800086004 /* UserViewController.storyboard */; };
+		F93CF9282A980FB500086004 /* Persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93CF9272A980FB400086004 /* Persistance.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +81,9 @@
 		F93CF9132A97815E00086004 /* UserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
 		F93CF9192A9785BF00086004 /* UIImageView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + Extension.swift"; sourceTree = "<group>"; };
 		F93CF91B2A97BF8B00086004 /* String + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extension.swift"; sourceTree = "<group>"; };
+		F93CF91D2A97C6B500086004 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		F93CF9252A97FB8800086004 /* UserViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserViewController.storyboard; sourceTree = "<group>"; };
+		F93CF9272A980FB400086004 /* Persistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistance.swift; sourceTree = "<group>"; };
 		FC8EBB272DE714F6D83CADC4 /* Pods-UserSearch-UserSearchUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UserSearch-UserSearchUITests.debug.xcconfig"; path = "Target Support Files/Pods-UserSearch-UserSearchUITests/Pods-UserSearch-UserSearchUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -196,6 +202,8 @@
 				F93CF9062A97680400086004 /* UserListViewController.swift */,
 				F93CF9082A97685200086004 /* BookmarksViewController.swift */,
 				F93CF90A2A9768CA00086004 /* HomeViewController.swift */,
+				F93CF91D2A97C6B500086004 /* UserViewController.swift */,
+				F93CF9252A97FB8800086004 /* UserViewController.storyboard */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -222,6 +230,7 @@
 			children = (
 				F93CF9192A9785BF00086004 /* UIImageView + Extension.swift */,
 				F93CF91B2A97BF8B00086004 /* String + Extension.swift */,
+				F93CF9272A980FB400086004 /* Persistance.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -346,6 +355,7 @@
 				F93CF8FF2A97626500086004 /* Home.storyboard in Resources */,
 				F90716312A975E8000F61631 /* LaunchScreen.storyboard in Resources */,
 				F907162E2A975E8000F61631 /* Assets.xcassets in Resources */,
+				F93CF9262A97FB8800086004 /* UserViewController.storyboard in Resources */,
 				F93CF9022A9764AE00086004 /* Main.storyboard in Resources */,
 				F93CF9142A97815E00086004 /* UserTableViewCell.xib in Resources */,
 			);
@@ -478,7 +488,9 @@
 				F93CF91A2A9785BF00086004 /* UIImageView + Extension.swift in Sources */,
 				F93CF90B2A9768CA00086004 /* HomeViewController.swift in Sources */,
 				F93CF91C2A97BF8B00086004 /* String + Extension.swift in Sources */,
+				F93CF91E2A97C6B500086004 /* UserViewController.swift in Sources */,
 				F90716252A975E7E00F61631 /* AppDelegate.swift in Sources */,
+				F93CF9282A980FB500086004 /* Persistance.swift in Sources */,
 				F93CF90D2A9769AD00086004 /* User.swift in Sources */,
 				F90716272A975E7E00F61631 /* SceneDelegate.swift in Sources */,
 				F93CF9122A97813E00086004 /* UserTableViewCell.swift in Sources */,

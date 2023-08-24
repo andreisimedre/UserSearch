@@ -25,6 +25,12 @@ class UserListViewController: UIViewController {
         loadUsers()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tableView.reloadData()
+    }
+    
     func setup() {
         self.title = "Users"
         
@@ -72,7 +78,8 @@ extension UserListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "UserTableViewCell", for: indexPath) as? UserTableViewCell else { return UITableViewCell()}
         
-        cell.configure(with: users[indexPath.row])
+        cell.configure(with: users[indexPath.row], indexPath)
+        cell.delegate = self
         
         return cell
     }
@@ -87,6 +94,15 @@ extension UserListViewController: UITableViewDelegate, UITableViewDataSource {
             loadUsers()
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "UserViewController", bundle: nil)
+        guard let userViewController = storyboard.instantiateViewController(withIdentifier: "UserViewController") as? UserViewController else { return }
+        userViewController.user = users[indexPath.row]
+        userViewController.delegate = self
+        
+        self.navigationController?.pushViewController(userViewController, animated: true)
+    }
 }
 
 extension UserListViewController: UISearchBarDelegate {
@@ -98,7 +114,7 @@ extension UserListViewController: UISearchBarDelegate {
         }
         
         users = usersToFilter.filter { user in
-            for textToSearchInto in [user.name?.first, user.name?.last, user.email, user.location?.city, user.location?.state, user.location?.street] {
+            for textToSearchInto in [user.name.first, user.name.last, user.email, user.location?.city, user.location?.state, user.location?.street] {
                 if textToSearchInto?.contains(find: searchText) ?? false {
                     return true
                 } else {
@@ -108,5 +124,15 @@ extension UserListViewController: UISearchBarDelegate {
             return false
         }
         tableView.reloadData()
+    }
+}
+
+extension UserListViewController: BookmarkButtonDelegate {
+    func didTappedBookmarkButton(_ indexPath: IndexPath?) {
+        if let indexPath = indexPath {
+            tableView.reloadRows(at: [indexPath], with: .none)
+        } else {
+            tableView.reloadData()
+        }
     }
 }
