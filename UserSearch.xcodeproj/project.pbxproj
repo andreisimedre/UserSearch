@@ -23,6 +23,10 @@
 		F93CF9092A97685200086004 /* BookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93CF9082A97685200086004 /* BookmarksViewController.swift */; };
 		F93CF90B2A9768CA00086004 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93CF90A2A9768CA00086004 /* HomeViewController.swift */; };
 		F93CF90D2A9769AD00086004 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93CF90C2A9769AD00086004 /* User.swift */; };
+		F93CF9102A976B3000086004 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93CF90F2A976B3000086004 /* API.swift */; };
+		F93CF9122A97813E00086004 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93CF9112A97813E00086004 /* UserTableViewCell.swift */; };
+		F93CF9142A97815E00086004 /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F93CF9132A97815E00086004 /* UserTableViewCell.xib */; };
+		F93CF91A2A9785BF00086004 /* UIImageView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93CF9192A9785BF00086004 /* UIImageView + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +72,10 @@
 		F93CF9082A97685200086004 /* BookmarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksViewController.swift; sourceTree = "<group>"; };
 		F93CF90A2A9768CA00086004 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F93CF90C2A9769AD00086004 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F93CF90F2A976B3000086004 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		F93CF9112A97813E00086004 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
+		F93CF9132A97815E00086004 /* UserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
+		F93CF9192A9785BF00086004 /* UIImageView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + Extension.swift"; sourceTree = "<group>"; };
 		FC8EBB272DE714F6D83CADC4 /* Pods-UserSearch-UserSearchUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UserSearch-UserSearchUITests.debug.xcconfig"; path = "Target Support Files/Pods-UserSearch-UserSearchUITests/Pods-UserSearch-UserSearchUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,7 +117,6 @@
 				C275A6D11CE8D446E790AA28 /* Pods-UserSearchTests.debug.xcconfig */,
 				05C4B66533517BDCE88A9527 /* Pods-UserSearchTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -152,6 +159,7 @@
 				F907165D2A97616800F61631 /* View */,
 				F907165C2A97616000F61631 /* Controller */,
 				F93CF9032A9765A500086004 /* Helper */,
+				F93CF90E2A976B0B00086004 /* Networking */,
 				F90716242A975E7E00F61631 /* AppDelegate.swift */,
 				F90716262A975E7E00F61631 /* SceneDelegate.swift */,
 				F907162D2A975E8000F61631 /* Assets.xcassets */,
@@ -193,6 +201,8 @@
 		F907165D2A97616800F61631 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F93CF9112A97813E00086004 /* UserTableViewCell.swift */,
+				F93CF9132A97815E00086004 /* UserTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -208,8 +218,17 @@
 		F93CF9032A9765A500086004 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				F93CF9192A9785BF00086004 /* UIImageView + Extension.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		F93CF90E2A976B0B00086004 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				F93CF90F2A976B3000086004 /* API.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,6 +242,7 @@
 				F907161D2A975E7E00F61631 /* Sources */,
 				F907161E2A975E7E00F61631 /* Frameworks */,
 				F907161F2A975E7E00F61631 /* Resources */,
+				2742D84C5903AF7609440EDF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -260,6 +280,7 @@
 				F907163D2A975E8000F61631 /* Sources */,
 				F907163E2A975E8000F61631 /* Frameworks */,
 				F907163F2A975E8000F61631 /* Resources */,
+				4FCEBCF1E794157C25CB56CC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -323,6 +344,7 @@
 				F90716312A975E8000F61631 /* LaunchScreen.storyboard in Resources */,
 				F907162E2A975E8000F61631 /* Assets.xcassets in Resources */,
 				F93CF9022A9764AE00086004 /* Main.storyboard in Resources */,
+				F93CF9142A97815E00086004 /* UserTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +365,40 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2742D84C5903AF7609440EDF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UserSearch/Pods-UserSearch-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UserSearch/Pods-UserSearch-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UserSearch/Pods-UserSearch-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4FCEBCF1E794157C25CB56CC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UserSearch-UserSearchUITests/Pods-UserSearch-UserSearchUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UserSearch-UserSearchUITests/Pods-UserSearch-UserSearchUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UserSearch-UserSearchUITests/Pods-UserSearch-UserSearchUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		AA5E234189EC5C5FC3D65091 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -416,12 +472,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F93CF91A2A9785BF00086004 /* UIImageView + Extension.swift in Sources */,
 				F93CF90B2A9768CA00086004 /* HomeViewController.swift in Sources */,
 				F90716252A975E7E00F61631 /* AppDelegate.swift in Sources */,
 				F93CF90D2A9769AD00086004 /* User.swift in Sources */,
 				F90716272A975E7E00F61631 /* SceneDelegate.swift in Sources */,
+				F93CF9122A97813E00086004 /* UserTableViewCell.swift in Sources */,
 				F93CF9072A97680400086004 /* UserListViewController.swift in Sources */,
 				F93CF9092A97685200086004 /* BookmarksViewController.swift in Sources */,
+				F93CF9102A976B3000086004 /* API.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

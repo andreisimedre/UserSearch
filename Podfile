@@ -6,7 +6,9 @@ target 'UserSearch' do
   use_frameworks!
 
   # Pods for UserSearch
-
+  pod 'Alamofire'
+  pod 'AlamofireImage'
+  
   target 'UserSearchTests' do
     inherit! :search_paths
     # Pods for testing
