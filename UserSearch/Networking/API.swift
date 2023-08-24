@@ -29,6 +29,6 @@ class API {
     
     private func createUrl(page: Int, results: Int, gender: String, nationality: String) -> URL? {
         // swiftlint:disable line_length
-        return URL(string: "https://randomuser.me/api/\(API.apiVersion)/?format=json&results=\(results)&gender=\(gender)&nat=\(nationality)&seed=usersearch&page=\(page)")
+        return URL(string: "https://randomuser.me/api/\(API.apiVersion)/?format=json&results=\(results)&gender=\(gender)&nat=\(nationality)&page=\(page)")
     }
 }

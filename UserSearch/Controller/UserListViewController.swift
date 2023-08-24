@@ -14,6 +14,8 @@ class UserListViewController: UIViewController {
     var users = [User]()
     var currentPage = 1
     
+    let refreshControl = UIRefreshControl()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,11 +26,21 @@ class UserListViewController: UIViewController {
     func setup() {
         self.title = "Users"
         
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        tableView.addSubview(refreshControl)
+        
         tableView.register(UINib(nibName: "UserTableViewCell", bundle: nil), forCellReuseIdentifier: "UserTableViewCell")
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundColor = .lightGray
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
+    }
+    
+    @objc func refresh(_ sender: AnyObject) {
+        users.removeAll()
+        tableView.reloadData()
+        loadUsers()
     }
     
     func loadUsers() {
@@ -40,6 +52,7 @@ class UserListViewController: UIViewController {
             
             self.activityIndicator.isHidden = true
             self.activityIndicator.stopAnimating()
+            refreshControl.endRefreshing()
         }
     }
 }
