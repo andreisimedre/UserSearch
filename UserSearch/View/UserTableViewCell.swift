@@ -43,11 +43,11 @@ class UserTableViewCell: UITableViewCell {
         self.user = user
         self.indexPath = indexPath
         avatarImageView.loadImageFromUrl(user.picture?.large ?? "")
-        firstNameLabel.text = user.name.first.capitalized
-        lastNameLabel.text = user.name.last.capitalized
+        firstNameLabel.text = user.name?.first.capitalized
+        lastNameLabel.text = user.name?.last.capitalized
         emailLabel.text = user.email
         
-        let bookmarkImage = Persistance.shared.isUserBookmarked(user) ? UIImage(systemName: "bookmark.fill") : UIImage(systemName: "bookmark")
+        let bookmarkImage = user.isBookmarked ? UIImage(systemName: "bookmark.fill") : UIImage(systemName: "bookmark")
         bookmarkButton.setImage(bookmarkImage, for: .normal)
     }
     

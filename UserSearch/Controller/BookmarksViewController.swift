@@ -10,6 +10,8 @@ import UIKit
 class BookmarksViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
+    let emptyView: EmptyView = EmptyView.fromNib()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,6 +32,10 @@ class BookmarksViewController: UIViewController {
         tableView.dataSource = self
         tableView.backgroundColor = .lightGray
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
+        
+        emptyView.frame = self.view.frame
+        emptyView.isHidden = true
+        self.view.addSubview(emptyView)
     }
 }
 
@@ -39,6 +45,7 @@ extension BookmarksViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        emptyView.isHidden = !(Persistance.shared.bookmarkedUsers.count == 0)
         return Persistance.shared.bookmarkedUsers.count
     }
     

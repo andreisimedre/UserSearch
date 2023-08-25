@@ -16,6 +16,8 @@ class UserListViewController: UIViewController {
     var usersToFilter = [User]()
     var currentPage = 1
     
+    let emptyView: EmptyView = EmptyView.fromNib()
+    
     let refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
@@ -43,6 +45,10 @@ class UserListViewController: UIViewController {
         tableView.dataSource = self
         tableView.backgroundColor = .lightGray
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
+        
+        emptyView.frame = self.view.frame
+        emptyView.isHidden = true
+        self.view.addSubview(emptyView)
     }
     
     @objc func refresh(_ sender: AnyObject) {
@@ -54,7 +60,10 @@ class UserListViewController: UIViewController {
     func loadUsers() {
         activityIndicator.startAnimating()
         API.shared.getUsers(page: currentPage) { [self] data, error in
-            guard let data = data else { return }
+            guard let data = data else {
+                emptyView.isHidden = false
+                return
+            }
             self.users.append(contentsOf: data.results)
             self.usersToFilter.append(contentsOf: data.results)
             self.tableView.reloadData()
@@ -114,7 +123,7 @@ extension UserListViewController: UISearchBarDelegate {
         }
         
         users = usersToFilter.filter { user in
-            for textToSearchInto in [user.name.first, user.name.last, user.email, user.location?.city, user.location?.state, user.location?.street] {
+            for textToSearchInto in [user.name?.first, user.name?.last, user.email, user.location?.city, user.location?.state, user.location?.street] {
                 if textToSearchInto?.contains(find: searchText) ?? false {
                     return true
                 } else {

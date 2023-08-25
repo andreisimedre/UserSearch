@@ -6,89 +6,75 @@
 //
 
 import Foundation
+import RealmSwift
 
 public struct Users: Decodable {
     let results: [User]
     let info: Info?
 }
 
-struct Info: Decodable {
+class Info: Decodable {
     let seed: String?
     let results, page: Int?
     let version: String?
 }
 
-struct User: Decodable {
-    let gender: Gender?
-    let name: NameClass
-    let location: Location?
-    let email: String?
-    let dob: Dob?
-    let registered: Dob?
-    let phone: String?
-    let cell: String?
-    let id: ID?
-    let picture: Picture?
-    let nat: String?
-    let login: Login
+class User: Object, Decodable {
+    private enum CodingKeys: String, CodingKey {
+        case gender, name, location, email, dob, registered, phone, cell, picture, nat, login
+    }
+    
+    @Persisted var gender: Gender?
+    @Persisted @objc var name: NameClass?
+    @Persisted @objc var location: Location?
+    @Persisted var email: String?
+    @Persisted @objc var dob: Dob?
+    @Persisted @objc var registered: Dob?
+    @Persisted var phone: String?
+    @Persisted var cell: String?
+    @Persisted @objc var picture: Picture?
+    @Persisted var nat: String?
+    @Persisted @objc var login: Login?
+    
+    @Persisted var isBookmarked = false
     
     var fullName: String {
-        return "\(name.title.rawValue.capitalized) \(name.first.capitalized) \(name.last.capitalized)"
+        return "\(name?.title.rawValue.capitalized ?? "") \(name?.first.capitalized ?? "") \(name?.last.capitalized ?? "")"
     }
     
     static func == (lhs: User, rhs: User) -> Bool {
-        return lhs.login.uuid == rhs.login.uuid
+        return lhs.login?.uuid == rhs.login?.uuid
     }
 }
 
-struct Login: Decodable {
-    let uuid: String
+class Login: EmbeddedObject, Decodable {
+    @Persisted var uuid: String
 }
 
-struct Dob: Decodable {
-    let date: String?
-    let age: Int?
+class Dob: EmbeddedObject, Decodable {
+    @Persisted var date: String?
+    @Persisted var age: Int?
 }
 
-enum Gender: String, Decodable {
+enum Gender: String, PersistableEnum, Decodable {
     case female
     case male
 }
 
-struct ID: Decodable {
-    let name: NameEnum?
-    let value: String?
+class Location: EmbeddedObject, Decodable {
+    @Persisted var street: String?
+    @Persisted var city: String?
+    @Persisted var state: String?
+    @Persisted var country: String?
 }
 
-enum NameEnum: String, Decodable {
-    case avs = "AVS"
-    case bsn = "BSN"
-    case cpr = "CPR"
-    case dni = "DNI"
-    case empty = ""
-    case fn = "FN"
-    case hetu = "HETU"
-    case insee = "INSEE"
-    case nino = "NINO"
-    case pps = "PPS"
-    case ssn = "SSN"
-    case tfn = "TFN"
+class NameClass: EmbeddedObject, Decodable {
+    @Persisted var title: Title
+    @Persisted var first: String
+    @Persisted var last: String
 }
 
-struct Location: Decodable {
-    let street: String?
-    let city: String?
-    let state: String?
-    let country: String?
-}
-
-struct NameClass: Decodable {
-    let title: Title
-    let first: String
-    let last: String
-}
-
-enum Title: String, Decodable {
+enum Title: String, PersistableEnum, Decodable {
     case madame
     case mademoiselle
     case miss
@@ -98,8 +84,8 @@ enum Title: String, Decodable {
     case ms
 }
 
-struct Picture: Decodable {
-    let large: String?
-    let medium: String?
-    let thumbnail: String?
+class Picture: EmbeddedObject, Decodable {
+    @Persisted var large: String?
+    @Persisted var medium: String?
+    @Persisted var thumbnail: String?
 }

@@ -8,6 +8,7 @@ target 'UserSearch' do
   # Pods for UserSearch
   pod 'Alamofire'
   pod 'AlamofireImage'
+  pod 'RealmSwift'
   
   target 'UserSearchTests' do
     inherit! :search_paths
