@@ -89,3 +89,5 @@ class Picture: EmbeddedObject, Decodable {
     @Persisted var medium: String?
     @Persisted var thumbnail: String?
 }
+
+

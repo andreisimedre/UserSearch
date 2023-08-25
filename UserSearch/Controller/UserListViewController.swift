@@ -45,6 +45,7 @@ class UserListViewController: UIViewController {
         tableView.dataSource = self
         tableView.backgroundColor = .lightGray
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
+        tableView.backgroundColor = .skyblue
         
         emptyView.frame = self.view.frame
         emptyView.isHidden = true

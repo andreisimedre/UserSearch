@@ -3,6 +3,8 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,6 +19,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="4sp-3s-YJ1">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" name="vandyke"/>
                     </navigationBar>
                     <connections>
                         <segue destination="Y4Z-z4-oq2" kind="relationship" relationship="rootViewController" id="TaA-BV-fxN"/>
@@ -39,7 +42,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="GdB-Sf-ANP"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="skyblue"/>
                         <constraints>
                             <constraint firstItem="GdB-Sf-ANP" firstAttribute="bottom" secondItem="nhx-YM-br3" secondAttribute="bottom" id="EAb-8k-qOI"/>
                             <constraint firstItem="GdB-Sf-ANP" firstAttribute="trailing" secondItem="nhx-YM-br3" secondAttribute="trailing" id="UTl-bH-XaO"/>
@@ -64,8 +67,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="1A2-md-FEI">
+                            <searchBar contentMode="redraw" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1A2-md-FEI">
                                 <rect key="frame" x="0.0" y="103" width="393" height="56"/>
+                                <color key="barTintColor" name="skyblue"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="TYT-DW-0MD" id="OQ0-5G-eWw"/>
@@ -80,7 +84,7 @@
                             </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="wcS-eI-fkp"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="skyblue"/>
                         <constraints>
                             <constraint firstItem="TaP-Bu-Te9" firstAttribute="leading" secondItem="wcS-eI-fkp" secondAttribute="leading" id="FSc-ik-P70"/>
                             <constraint firstItem="wcS-eI-fkp" firstAttribute="trailing" secondItem="TaP-Bu-Te9" secondAttribute="trailing" id="Kc4-iF-UeQ"/>
@@ -111,7 +115,6 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="tRl-st-XU4">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="xVs-Io-88T" kind="relationship" relationship="viewControllers" id="euY-MQ-uOZ"/>
@@ -126,7 +129,9 @@
         <scene sceneID="Q6U-xX-els">
             <objects>
                 <navigationController id="xVs-Io-88T" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Users" image="list.bullet.clipboard" catalog="system" id="cCP-ez-TFQ"/>
+                    <tabBarItem key="tabBarItem" title="Users" id="cCP-ez-TFQ">
+                        <imageReference key="image" image="list.bullet.clipboard" catalog="system"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8iH-tr-MjF">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -143,6 +148,12 @@
     <resources>
         <image name="bookmark.fill" catalog="system" width="110" height="128"/>
         <image name="list.bullet.clipboard" catalog="system" width="103" height="128"/>
+        <namedColor name="skyblue">
+            <color red="0.63137254901960782" green="0.80392156862745101" blue="0.95686274509803926" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="vandyke">
+            <color red="0.30588235294117649" green="0.23921568627450981" blue="0.25882352941176473" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

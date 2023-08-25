@@ -34,6 +34,7 @@
 		F93CF9302A98A9E000086004 /* EmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F93CF92F2A98A9E000086004 /* EmptyView.xib */; };
 		F93CF9322A98AD4000086004 /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93CF9312A98AD4000086004 /* UIView + Extension.swift */; };
 		F93CF9342A98AD9200086004 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93CF9332A98AD9200086004 /* EmptyView.swift */; };
+		F93CF9362A98BF1D00086004 /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93CF9352A98BF1D00086004 /* UIColor + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +91,7 @@
 		F93CF92F2A98A9E000086004 /* EmptyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyView.xib; sourceTree = "<group>"; };
 		F93CF9312A98AD4000086004 /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
 		F93CF9332A98AD9200086004 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		F93CF9352A98BF1D00086004 /* UIColor + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
 		FC8EBB272DE714F6D83CADC4 /* Pods-UserSearch-UserSearchUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UserSearch-UserSearchUITests.debug.xcconfig"; path = "Target Support Files/Pods-UserSearch-UserSearchUITests/Pods-UserSearch-UserSearchUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -240,6 +242,7 @@
 				F93CF9192A9785BF00086004 /* UIImageView + Extension.swift */,
 				F93CF91B2A97BF8B00086004 /* String + Extension.swift */,
 				F93CF9312A98AD4000086004 /* UIView + Extension.swift */,
+				F93CF9352A98BF1D00086004 /* UIColor + Extension.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -512,6 +515,7 @@
 				F93CF90D2A9769AD00086004 /* User.swift in Sources */,
 				F90716272A975E7E00F61631 /* SceneDelegate.swift in Sources */,
 				F93CF9122A97813E00086004 /* UserTableViewCell.swift in Sources */,
+				F93CF9362A98BF1D00086004 /* UIColor + Extension.swift in Sources */,
 				F93CF9322A98AD4000086004 /* UIView + Extension.swift in Sources */,
 				F93CF9072A97680400086004 /* UserListViewController.swift in Sources */,
 				F93CF9092A97685200086004 /* BookmarksViewController.swift in Sources */,
